@@ -1,5 +1,5 @@
 # Build stage
-FROM node:16 AS build
+FROM krmp-d2hub-idock.daumkakao.io/goorm/node AS build
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci
@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Run stage
-FROM node:16
+FROM krmp-d2hub-idock.daumkakao.io/goorm/node
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/build ./build
 
