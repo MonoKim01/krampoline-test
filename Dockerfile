@@ -24,7 +24,7 @@ COPY default.conf /etc/nginx/conf.d/
 
 # Install serve for serving static files
 RUN npm install -g serve
-EXPOSE 3000
+EXPOSE 80
 
 # Start Nginx and serve
 CMD service nginx start && serve -s build
